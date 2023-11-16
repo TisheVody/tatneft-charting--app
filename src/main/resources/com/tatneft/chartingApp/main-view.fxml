@@ -1,27 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.chart.BarChart?>
-<?import javafx.scene.chart.CategoryAxis?>
-<?import javafx.scene.chart.NumberAxis?>
-<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
-
 
 <BorderPane xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tatneft.chartingApp.Controller">
    <left>
       <VBox spacing="10.0" BorderPane.alignment="CENTER">
          <children>
             <Label alignment="CENTER" text="Выберите тип графика" textAlignment="CENTER" />
-            <ChoiceBox prefWidth="150.0" />
+            <ToolBar orientation="VERTICAL" prefHeight="112.0" prefWidth="111.0">
+              <items>
+                  <ToggleButton fx:id="btnAreaChart" mnemonicParsing="false" onAction="#toggleButtonSelect" text="Area Chart">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="btnGroup" />
+                     </toggleGroup>
+                  </ToggleButton>
+                  <ToggleButton fx:id="btnPolarChart" mnemonicParsing="false" onAction="#toggleButtonSelect" text="Polar Chart" toggleGroup="$btnGroup" />
+                  <ToggleButton fx:id="btnSankeyChart" mnemonicParsing="false" onAction="#toggleButtonSelect" text="Sankey Chart" toggleGroup="$btnGroup" />
+              </items>
+            </ToolBar>
             <TextField promptText="Введите данные" />
             <TextField promptText="Введите данные" />
             <TextField promptText="Введите данные" />
             <TextField promptText="Введите данные" />
+            <Label fx:id="lbl" text="Label" />
          </children>
          <padding>
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
@@ -29,16 +39,9 @@
       </VBox>
    </left>
    <center>
-      <BarChart fx:id="mainChart" BorderPane.alignment="CENTER">
-        <xAxis>
-          <CategoryAxis side="BOTTOM" />
-        </xAxis>
-        <yAxis>
-          <NumberAxis side="LEFT" />
-        </yAxis>
-      </BarChart>
+      <ImageView fx:id="imgExample" fitHeight="500.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+         <image>
+            <Image url="@../../../images/image_area_chart.png" />
+         </image></ImageView>
    </center>
-   <right>
-      <AnchorPane fx:id="chartAnc" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
-   </right>
 </BorderPane>
