@@ -12,6 +12,8 @@ import org.jfree.data.category.DefaultCategoryDataset;
 
 import java.awt.*;
 
+
+
 public class AreaChart {
     public static void drawAreaChart(String value1, String value2, String value3, String value4) {
         CategoryDataset areaDataset = createAreaDataset(value1, value2, value3, value4);

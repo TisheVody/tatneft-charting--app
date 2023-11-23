@@ -1,9 +1,6 @@
 package com.tatneft.chartingApp;
 
-import com.tatneft.chartingApp.Charts.AreaChart;
-import com.tatneft.chartingApp.Charts.FlowChart;
-import com.tatneft.chartingApp.Charts.PolarChart;
-import com.tatneft.chartingApp.Charts.tests;
+import com.tatneft.chartingApp.Charts.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -61,6 +58,9 @@ public class Controller implements Initializable {
     @FXML
     private javafx.scene.control.TextField txtFieldValue4;
 
+    @FXML
+    private AreaChart areaChartId;
+
     public void toggleButtonSelect (ActionEvent event) {
         ImageView image = null;
 
@@ -95,10 +95,10 @@ public class Controller implements Initializable {
 
             PolarChart.drawPolarChart(value1, value2, value3, value4);
 
-//            tests demo = new tests(title);
-//            demo.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            //tests.drawPolarChart();
+
+//            PolarChartDemo demo = new PolarChartDemo("Polar Chart Demo");
 //            demo.pack();
-//            demo.setLocationRelativeTo(null);
 //            demo.setVisible(true);
         }
 

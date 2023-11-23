@@ -29,13 +29,13 @@ public class PolarChart {
         return chart;
     }
 
-    private static java.util.List<XYSeries> generateSegments(Double radius, int segmentsAmount) {
+    private static java.util.List<XYSeries> generateSegments(Double radius, double segmentsAmount) {
         java.util.List<XYSeries> seriesList = new ArrayList<>();
         double segmentSize = 360.0 / segmentsAmount;
         for(int s = 0; s < segmentsAmount; s++) {
             radius = radius - s * 10;
             XYSeries series = new XYSeries("Series " + s);
-            for(double i = segmentSize * s; i < segmentSize * (s + 1); i++) {
+            for(double i = segmentSize * s + 0.5; i < segmentSize * (s + 1) - 0.5; i++) {
                 for (int j = 0; j < radius; j++) {
                     series.add(i, j);
                 }
@@ -48,7 +48,7 @@ public class PolarChart {
     private static XYSeriesCollection createPolarDataset(String value1, String value2, String value3, String value4) {
         XYSeriesCollection dataSet = new XYSeriesCollection();
 
-        java.util.List<XYSeries> seriesList = generateSegments(100.0, 4);
+        java.util.List<XYSeries> seriesList = generateSegments(100.0, 4.0);
 
         dataSet.addSeries(seriesList.get(0));
         dataSet.addSeries(seriesList.get(1));

@@ -68,10 +68,6 @@ public class tests extends JFrame implements ChartProgressListener {
         return chart;
     }
 
-    public static void main(String[] args) {
-
-    }
-
     @Override
     public void chartProgress(ChartProgressEvent e) {
         if (e.getType() == ChartProgressEvent.DRAWING_FINISHED) {
@@ -82,10 +78,10 @@ public class tests extends JFrame implements ChartProgressListener {
     }
 
     public void draw() {
-        if (i < 8) {
+        if (i < 4) {
             XYSeries series = new XYSeries(i + "π/8 " + "< θ < 2π+" + i + "π/8");
             for (int t = 0; t <= 1 * 360; t++) {
-                series.add(90 - t - i * 45, t);
+                series.add(t - i * 45, t);
             }
             result.addSeries(series);
             setFilled(result);
@@ -97,5 +93,13 @@ public class tests extends JFrame implements ChartProgressListener {
         for (int i = 0; i < dataset.getSeriesCount(); i++) {
             renderers.setSeriesFilled(i, true);
         }
+    }
+
+    public static void drawPolarChart() {
+        tests demo = new tests(title);
+        demo.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        demo.pack();
+        demo.setLocationRelativeTo(null);
+        demo.setVisible(true);
     }
 }
