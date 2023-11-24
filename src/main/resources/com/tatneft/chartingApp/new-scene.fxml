@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <left>
+      <VBox alignment="CENTER" style="-fx-background-color: #515151;" BorderPane.alignment="CENTER">
+         <children>
+            <Pane maxHeight="-Infinity" prefHeight="45.0" style="-fx-background-color: #ff0f2f;">
+               <children>
+                  <Text fill="#c4c2c2" layoutX="31.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Выберите тип графика">
+                     <font>
+                        <Font name="Symbol" size="18.0" />
+                     </font>
+                  </Text>
+               </children>
+            </Pane>
+            <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="250.0" style="-fx-background-color: black;" text="Area Chart" textFill="#c4c2c2" />
+            <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="250.0" style="-fx-background-color: black;" text="Polar Chart" textFill="#c4c2c2" />
+            <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="250.0" style="-fx-background-color: black;" text="Sankey Chart" textFill="#c4c2c2" />
+         </children>
+      </VBox>
+   </left>
+   <top>
+      <AnchorPane prefHeight="70.0" prefWidth="200.0" style="-fx-background-color: yellow;" BorderPane.alignment="CENTER" />
+   </top>
+   <right>
+      <ImageView fitHeight="500.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+         <image>
+            <Image url="@../../../images/image_area_chart.png" />
+         </image>
+      </ImageView>
+   </right>
+</BorderPane>

@@ -29,26 +29,27 @@ public class PolarChart {
         return chart;
     }
 
-    private static java.util.List<XYSeries> generateSegments(Double radius, double segmentsAmount) {
+    private static java.util.List<XYSeries> generateSegments(Double[] radius, double segmentsAmount) {
         java.util.List<XYSeries> seriesList = new ArrayList<>();
         double segmentSize = 360.0 / segmentsAmount;
         for(int s = 0; s < segmentsAmount; s++) {
-            radius = radius - s * 10;
+            //radius = radius - s * 10;
+            //radius = new Double[]{radius[s]};
             XYSeries series = new XYSeries("Series " + s);
             for(double i = segmentSize * s + 0.5; i < segmentSize * (s + 1) - 0.5; i++) {
-                for (int j = 0; j < radius; j++) {
+                for (int j = 0; j < radius[s]; j++) {
                     series.add(i, j);
                 }
             }
             seriesList.add(series);
         }
-
         return seriesList;
     }
-    private static XYSeriesCollection createPolarDataset(String value1, String value2, String value3, String value4) {
+
+    private static XYSeriesCollection createPolarDataset(Double[]value) {
         XYSeriesCollection dataSet = new XYSeriesCollection();
 
-        java.util.List<XYSeries> seriesList = generateSegments(100.0, 4.0);
+        java.util.List<XYSeries> seriesList = generateSegments(value,4.0);
 
         dataSet.addSeries(seriesList.get(0));
         dataSet.addSeries(seriesList.get(1));
@@ -57,8 +58,8 @@ public class PolarChart {
         return dataSet;
     }
 
-    public static void drawPolarChart(String value1, String value2, String value3, String value4){
-        XYSeriesCollection polarDataset = createPolarDataset(value1, value2, value3, value4);
+    public static void drawPolarChart(Double[]value){
+        XYSeriesCollection polarDataset = createPolarDataset(value);
         JFreeChart polarChart = createPolarChart(polarDataset);
         ChartFrame polarFrame = new ChartFrame("Polar Chart", polarChart);
         polarFrame.setVisible(true);

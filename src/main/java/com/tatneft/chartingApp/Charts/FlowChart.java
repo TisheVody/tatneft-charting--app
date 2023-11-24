@@ -12,53 +12,227 @@ import javax.swing.*;
 import java.awt.*;
 
 public class FlowChart extends JFrame {
-    public FlowChart(String title) {
+    public FlowChart(String title,
+                     String stage1Text,
+                     String stage2Text,
+                     String stage3Text,
+                     String txtS1Src1,
+                     String txtS1Src2,
+                     String txtS1Src3,
+                     String txtS1Src4,
+                     String txtS2Src1,
+                     String txtS2Src2,
+                     String txtS2Src3,
+                     String txtS2Src4,
+                     String txtS3Src1,
+                     String txtS3Src2,
+                     String txtS3Src3,
+                     String txtS3Src4,
+                     String txtS1Dest1,
+                     String txtS1Dest2,
+                     String txtS1Dest3,
+                     String txtS1Dest4,
+                     String txtS2Dest1,
+                     String txtS2Dest2,
+                     String txtS2Dest3,
+                     String txtS2Dest4,
+                     String txtS3Dest1,
+                     String txtS3Dest2,
+                     String txtS3Dest3,
+                     String txtS3Dest4,
+                     String txtS1Flow1,
+                     String txtS1Flow2,
+                     String txtS1Flow3,
+                     String txtS1Flow4,
+                     String txtS2Flow1,
+                     String txtS2Flow2,
+                     String txtS2Flow3,
+                     String txtS2Flow4,
+                     String txtS3Flow1,
+                     String txtS3Flow2,
+                     String txtS3Flow3,
+                     String txtS3Flow4) {
         super(title);
-        JPanel chartPanel = createDemoPanel();
+        JPanel chartPanel = createDemoPanel(stage1Text,
+                stage2Text,
+                stage3Text,
+                txtS1Src1,
+                txtS1Src2,
+                txtS1Src3,
+                txtS1Src4,
+                txtS2Src1,
+                txtS2Src2,
+                txtS2Src3,
+                txtS2Src4,
+                txtS3Src1,
+                txtS3Src2,
+                txtS3Src3,
+                txtS3Src4,
+                txtS1Dest1,
+                txtS1Dest2,
+                txtS1Dest3,
+                txtS1Dest4,
+                txtS2Dest1,
+                txtS2Dest2,
+                txtS2Dest3,
+                txtS2Dest4,
+                txtS3Dest1,
+                txtS3Dest2,
+                txtS3Dest3,
+                txtS3Dest4,
+                txtS1Flow1,
+                txtS1Flow2,
+                txtS1Flow3,
+                txtS1Flow4,
+                txtS2Flow1,
+                txtS2Flow2,
+                txtS2Flow3,
+                txtS2Flow4,
+                txtS3Flow1,
+                txtS3Flow2,
+                txtS3Flow3,
+                txtS3Flow4);
         chartPanel.setPreferredSize(new java.awt.Dimension(760, 500));
         setContentPane(chartPanel);
     }
 
-    /**
-     * Creates a panel for the demo (used by SuperDemo.java).
-     *
-     * @return A panel.
-     */
-    public static JPanel createDemoPanel() {
-        FlowDataset<String> dataset = createDataset();
+    public static JPanel createDemoPanel(String stage1Text,
+        String stage2Text,
+        String stage3Text,
+        String txtS1Src1,
+        String txtS1Src2,
+        String txtS1Src3,
+        String txtS1Src4,
+        String txtS2Src1,
+        String txtS2Src2,
+        String txtS2Src3,
+        String txtS2Src4,
+        String txtS3Src1,
+        String txtS3Src2,
+        String txtS3Src3,
+        String txtS3Src4,
+        String txtS1Dest1,
+        String txtS1Dest2,
+        String txtS1Dest3,
+        String txtS1Dest4,
+        String txtS2Dest1,
+        String txtS2Dest2,
+        String txtS2Dest3,
+        String txtS2Dest4,
+        String txtS3Dest1,
+        String txtS3Dest2,
+        String txtS3Dest3,
+        String txtS3Dest4,
+        String txtS1Flow1,
+        String txtS1Flow2,
+        String txtS1Flow3,
+        String txtS1Flow4,
+        String txtS2Flow1,
+        String txtS2Flow2,
+        String txtS2Flow3,
+        String txtS2Flow4,
+        String txtS3Flow1,
+        String txtS3Flow2,
+        String txtS3Flow3,
+        String txtS3Flow4) {
+        FlowDataset<String> dataset = createDataset(stage1Text,
+                stage2Text,
+                stage3Text,
+                txtS1Src1,
+                txtS1Src2,
+                txtS1Src3,
+                txtS1Src4,
+                txtS2Src1,
+                txtS2Src2,
+                txtS2Src3,
+                txtS2Src4,
+                txtS3Src1,
+                txtS3Src2,
+                txtS3Src3,
+                txtS3Src4,
+                txtS1Dest1,
+                txtS1Dest2,
+                txtS1Dest3,
+                txtS1Dest4,
+                txtS2Dest1,
+                txtS2Dest2,
+                txtS2Dest3,
+                txtS2Dest4,
+                txtS3Dest1,
+                txtS3Dest2,
+                txtS3Dest3,
+                txtS3Dest4,
+                txtS1Flow1,
+                txtS1Flow2,
+                txtS1Flow3,
+                txtS1Flow4,
+                txtS2Flow1,
+                txtS2Flow2,
+                txtS2Flow3,
+                txtS2Flow4,
+                txtS3Flow1,
+                txtS3Flow2,
+                txtS3Flow3,
+                txtS3Flow4);
         JFreeChart chart = createChart(dataset);
         return new ChartPanel(chart);
     }
 
-    /**
-     * Creates a dataset.
-     *
-     * @return a dataset.
-     */
-    private static FlowDataset<String> createDataset() {
+    private static FlowDataset<String> createDataset(String stage1Text,
+        String stage2Text,
+        String stage3Text,
+        String txtS1Src1,
+        String txtS1Src2,
+        String txtS1Src3,
+        String txtS1Src4,
+        String txtS2Src1,
+        String txtS2Src2,
+        String txtS2Src3,
+        String txtS2Src4,
+        String txtS3Src1,
+        String txtS3Src2,
+        String txtS3Src3,
+        String txtS3Src4,
+        String txtS1Dest1,
+        String txtS1Dest2,
+        String txtS1Dest3,
+        String txtS1Dest4,
+        String txtS2Dest1,
+        String txtS2Dest2,
+        String txtS2Dest3,
+        String txtS2Dest4,
+        String txtS3Dest1,
+        String txtS3Dest2,
+        String txtS3Dest3,
+        String txtS3Dest4,
+        String txtS1Flow1,
+        String txtS1Flow2,
+        String txtS1Flow3,
+        String txtS1Flow4,
+        String txtS2Flow1,
+        String txtS2Flow2,
+        String txtS2Flow3,
+        String txtS2Flow4,
+        String txtS3Flow1,
+        String txtS3Flow2,
+        String txtS3Flow3,
+        String txtS3Flow4) {
         DefaultFlowDataset<String> dataset = new DefaultFlowDataset<>();
-        dataset.setFlow(0, "A", "W", 5.0);
-        dataset.setFlow(0, "A", "X", 5.0);
-        dataset.setFlow(0, "A", "Y", 2.0);
-        dataset.setFlow(0, "A", "Z", 1.0);
-        dataset.setFlow(0, "B", "X", 2.0);
-        dataset.setFlow(0, "B", "Y", 2.0);
-        dataset.setFlow(0, "B", "Z", 2.0);
+        dataset.setFlow(0, txtS1Src1, txtS1Dest1, Double.parseDouble(txtS1Flow1));
+        dataset.setFlow(0, txtS1Src2, txtS1Dest2, Double.parseDouble(txtS1Flow2));
+        dataset.setFlow(0, txtS1Src3, txtS1Dest3, Double.parseDouble(txtS1Flow3));
+        dataset.setFlow(0, txtS1Src4, txtS1Dest4, Double.parseDouble(txtS1Flow4));
 
-        //dataset.setFlow(1, "W", "D", 6);
-        dataset.setFlow(1, "X", "D", 3);
-        dataset.setFlow(1, "X", "E", 4);
-        dataset.setFlow(1, "Y", "D", 5);
-        dataset.setFlow(1, "Y", "E", 3);
-        dataset.setFlow(1, "Z", "D", 2);
-        dataset.setFlow(1, "Z", "E", 1);
+        dataset.setFlow(1, txtS2Src1, txtS2Dest1, Double.parseDouble(txtS2Flow1));
+        dataset.setFlow(1, txtS2Src2, txtS2Dest2, Double.parseDouble(txtS2Flow2));
+        dataset.setFlow(1, txtS2Src3, txtS2Dest3, Double.parseDouble(txtS2Flow3));
+        dataset.setFlow(1, txtS2Src4, txtS2Dest4, Double.parseDouble(txtS2Flow4));
 
-        dataset.setFlow(2, "D", "H", 3);
-        dataset.setFlow(2, "D", "I", 3);
-        dataset.setFlow(2, "D", "J", 0);
-        dataset.setFlow(2, "E", "H", 3);
-        dataset.setFlow(2, "E", "I", 2);
-        dataset.setFlow(2, "E", "J", 3);
+        dataset.setFlow(2, txtS3Src1, txtS3Dest1, Double.parseDouble(txtS3Flow1));
+        dataset.setFlow(2, txtS3Src2, txtS3Dest2, Double.parseDouble(txtS3Flow2));
+        dataset.setFlow(2, txtS3Src3, txtS3Dest3, Double.parseDouble(txtS3Flow3));
+        dataset.setFlow(2, txtS3Src4, txtS3Dest4, Double.parseDouble(txtS3Flow4));
+
         return dataset;
     }
 
@@ -86,20 +260,91 @@ public class FlowChart extends JFrame {
         return chart;
     }
 
-    /**
-     * Creates a sample chart.
-     *
-     * @param dataset  the dataset.
-     *
-     * @return A sample chart.
-     */
     private static JFreeChart createChart(FlowDataset<String> dataset) {
         JFreeChart chart = createFlowPlot("Flow Plot", dataset);
         return chart;
     }
 
-    public static void drawFlowChart(String title) {
-        FlowChart demo = new FlowChart(title);
+    public static void drawFlowChart(String title,
+                                     String stage1Text,
+                                     String stage2Text,
+                                     String stage3Text,
+                                     String txtS1Src1,
+                                     String txtS1Src2,
+                                     String txtS1Src3,
+                                     String txtS1Src4,
+                                     String txtS2Src1,
+                                     String txtS2Src2,
+                                     String txtS2Src3,
+                                     String txtS2Src4,
+                                     String txtS3Src1,
+                                     String txtS3Src2,
+                                     String txtS3Src3,
+                                     String txtS3Src4,
+                                     String txtS1Dest1,
+                                     String txtS1Dest2,
+                                     String txtS1Dest3,
+                                     String txtS1Dest4,
+                                     String txtS2Dest1,
+                                     String txtS2Dest2,
+                                     String txtS2Dest3,
+                                     String txtS2Dest4,
+                                     String txtS3Dest1,
+                                     String txtS3Dest2,
+                                     String txtS3Dest3,
+                                     String txtS3Dest4,
+                                     String txtS1Flow1,
+                                     String txtS1Flow2,
+                                     String txtS1Flow3,
+                                     String txtS1Flow4,
+                                     String txtS2Flow1,
+                                     String txtS2Flow2,
+                                     String txtS2Flow3,
+                                     String txtS2Flow4,
+                                     String txtS3Flow1,
+                                     String txtS3Flow2,
+                                     String txtS3Flow3,
+                                     String txtS3Flow4) {
+        FlowChart demo = new FlowChart(title,
+                stage1Text,
+                stage2Text,
+                stage3Text,
+                txtS1Src1,
+                txtS1Src2,
+                txtS1Src3,
+                txtS1Src4,
+                txtS2Src1,
+                txtS2Src2,
+                txtS2Src3,
+                txtS2Src4,
+                txtS3Src1,
+                txtS3Src2,
+                txtS3Src3,
+                txtS3Src4,
+                txtS1Dest1,
+                txtS1Dest2,
+                txtS1Dest3,
+                txtS1Dest4,
+                txtS2Dest1,
+                txtS2Dest2,
+                txtS2Dest3,
+                txtS2Dest4,
+                txtS3Dest1,
+                txtS3Dest2,
+                txtS3Dest3,
+                txtS3Dest4,
+                txtS1Flow1,
+                txtS1Flow2,
+                txtS1Flow3,
+                txtS1Flow4,
+                txtS2Flow1,
+                txtS2Flow2,
+                txtS2Flow3,
+                txtS2Flow4,
+                txtS3Flow1,
+                txtS3Flow2,
+                txtS3Flow3,
+                txtS3Flow4);
         demo.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         demo.pack();
         UIUtils.centerFrameOnScreen(demo);
