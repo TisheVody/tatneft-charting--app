@@ -1,7 +1,6 @@
 package com.tatneft.chartingApp.Charts;
 
 import com.tatneft.chartingApp.ThemesForCharts;
-import javafx.util.Pair;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartFrame;
 import org.jfree.chart.JFreeChart;
@@ -13,8 +12,6 @@ import org.jfree.data.xy.XYSeriesCollection;
 
 import java.awt.*;
 import java.util.ArrayList;
-
-import static com.tatneft.chartingApp.utility.Utility.createRandomData;
 
 public class PolarChart {
 

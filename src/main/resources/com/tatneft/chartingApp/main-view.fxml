@@ -19,303 +19,217 @@
 <?import javafx.scene.text.Text?>
 
 <TabPane fx:id="mainTabPane" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tatneft.chartingApp.Controller">
-   <tabs>
-      <Tab fx:id="tabSelectChart" closable="false" text="Выбор графика">
-         <content>
-            <BorderPane>
-               <center>
-                  <GridPane alignment="CENTER" vgap="30.0" BorderPane.alignment="CENTER">
-                     <columnConstraints>
-                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" percentWidth="50.0" />
-                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" percentWidth="50.0" />
-                     </columnConstraints>
-                     <rowConstraints>
-                        <RowConstraints minHeight="10.0" percentHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" percentHeight="40.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" percentHeight="40.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" percentHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                     </rowConstraints>
-                     <children>
-                        <ImageView fx:id="imgExample" fitHeight="300.0" fitWidth="500.0" onMouseClicked="#toggleButtonSelect" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
-                           <image>
-                              <Image url="@../../../images/image_area_chart.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="imgExample2" fitHeight="300.0" fitWidth="500.0" onMouseClicked="#toggleButtonSelect" pickOnBounds="true" preserveRatio="true" GridPane.columnSpan="2" GridPane.rowIndex="2">
-                           <image>
-                              <Image url="@../../../images/image_polar_chart.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="imgExample3" fitHeight="300.0" fitWidth="500.0" onMouseClicked="#toggleButtonSelect" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                           <image>
-                              <Image url="@../../../images/image_sankey_chart.png" />
-                           </image>
-                        </ImageView>
-                        <Label alignment="CENTER" text="Выберите тип графика" textAlignment="CENTER" GridPane.columnSpan="2" />
-                        <ToggleButton fx:id="btnAreaChart" mnemonicParsing="false" onAction="#toggleButtonSelect" text="Area Chart" GridPane.rowIndex="2" GridPane.valignment="TOP">
-                           <toggleGroup>
-                              <ToggleGroup fx:id="btnGroup" />
-                           </toggleGroup>
-                           <GridPane.margin>
-                              <Insets top="10.0" />
-                           </GridPane.margin>
-                        </ToggleButton>
-                        <ToggleButton fx:id="btnPolarChart" mnemonicParsing="false" onAction="#toggleButtonSelect" text="Polar Chart" toggleGroup="$btnGroup" GridPane.columnSpan="2" GridPane.rowIndex="3" GridPane.valignment="TOP">
-                           <GridPane.margin>
-                              <Insets top="10.0" />
-                           </GridPane.margin>
-                        </ToggleButton>
-                        <ToggleButton fx:id="btnSankeyChart" mnemonicParsing="false" onAction="#toggleButtonSelect" text="Sankey Chart" toggleGroup="$btnGroup" GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.valignment="TOP">
-                           <GridPane.margin>
-                              <Insets top="10.0" />
-                           </GridPane.margin>
-                        </ToggleButton>
-                     </children>
-                  </GridPane>
-               </center>
-            </BorderPane>
-         </content>
-      </Tab>
-      <Tab fx:id="tabAreaChart" text="Area Chart">
-         <content>
-            <BorderPane>
-               <center>
-                  <GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="1100.0" vgap="30.0" BorderPane.alignment="CENTER">
-                     <columnConstraints>
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="20.0" prefWidth="70.0" />
-                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" percentWidth="20.0" />
-                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" percentWidth="20.0" />
-                     </columnConstraints>
-                     <rowConstraints>
-                        <RowConstraints minHeight="10.0" percentHeight="5.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" percentHeight="20.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" percentHeight="20.0" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                     </rowConstraints>
-                     <children>
-                        <VBox alignment="CENTER" maxWidth="-Infinity" prefWidth="160.0" spacing="10.0" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="CENTER">
-                           <children>
-                              <TextField fx:id="txtFieldOx11" maxWidth="-Infinity" prefWidth="150.0" promptText="Данные по оси ОХ" />
-                              <TextField fx:id="txtFieldOx12" maxWidth="-Infinity" prefWidth="150.0" promptText="Данные по оси ОХ" />
-                              <TextField fx:id="txtFieldOx13" maxWidth="-Infinity" prefWidth="150.0" promptText="Данные по оси ОХ" />
-                              <TextField fx:id="txtFieldOx14" maxWidth="-Infinity" prefWidth="150.0" promptText="Данные по оси ОХ" />
-                           </children>
-                        </VBox>
-                        <VBox alignment="CENTER" maxWidth="-Infinity" prefWidth="160.0" spacing="10.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
-                           <children>
-                              <TextField fx:id="txtFieldOy11" maxWidth="-Infinity" prefWidth="150.0" promptText="Данные по оси ОY" />
-                              <TextField fx:id="txtFieldOy12" maxWidth="-Infinity" prefWidth="150.0" promptText="Данные по оси ОY" />
-                              <TextField fx:id="txtFieldOy13" maxWidth="-Infinity" prefWidth="150.0" promptText="Данные по оси ОY" />
-                              <TextField fx:id="txtFieldOy14" maxWidth="-Infinity" prefWidth="150.0" promptText="Данные по оси ОY" />
-                           </children>
-                        </VBox>
-                        <VBox alignment="CENTER" maxWidth="-Infinity" prefWidth="160.0" spacing="10.0" GridPane.halignment="CENTER" GridPane.rowIndex="1">
-                           <children>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Группа значений 1" />
-                              <TextField fx:id="txtFieldGroupValue1" promptText="Введите данные" />
-                           </children>
-                        </VBox>
-                        <VBox alignment="CENTER" maxWidth="-Infinity" prefWidth="160.0" spacing="10.0" GridPane.halignment="CENTER" GridPane.rowIndex="2">
-                           <children>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Группа значений 2" />
-                              <TextField fx:id="txtFieldGroupValue2" promptText="Введите данные" />
-                           </children>
-                        </VBox>
-                        <Button fx:id="btnDrawChart1" alignment="CENTER" mnemonicParsing="false" onAction="#btnDrawAreaChart" text="Построить график" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
-                        <Label alignment="CENTER" text="Введите данные" textAlignment="CENTER" GridPane.halignment="CENTER" />
-                        <VBox alignment="CENTER" maxWidth="-Infinity" prefWidth="160.0" spacing="10.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
-                           <children>
-                              <TextField fx:id="txtFieldOx21" maxWidth="-Infinity" prefWidth="150.0" promptText="Данные по оси ОХ" />
-                              <TextField fx:id="txtFieldOx22" maxWidth="-Infinity" prefWidth="150.0" promptText="Данные по оси ОХ" />
-                              <TextField fx:id="txtFieldOx23" maxWidth="-Infinity" prefWidth="150.0" promptText="Данные по оси ОХ" />
-                              <TextField fx:id="txtFieldOx24" maxWidth="-Infinity" prefWidth="150.0" promptText="Данные по оси ОХ" />
-                           </children>
-                        </VBox>
-                        <VBox alignment="CENTER" maxWidth="-Infinity" prefWidth="160.0" spacing="10.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
-                           <children>
-                              <TextField fx:id="txtFieldOy21" maxWidth="-Infinity" prefWidth="150.0" promptText="Данные по оси ОY" />
-                              <TextField fx:id="txtFieldOy22" maxWidth="-Infinity" prefWidth="150.0" promptText="Данные по оси ОY" />
-                              <TextField fx:id="txtFieldOy23" maxWidth="-Infinity" prefWidth="150.0" promptText="Данные по оси ОY" />
-                              <TextField fx:id="txtFieldOy24" maxWidth="-Infinity" prefWidth="150.0" promptText="Данные по оси ОY" />
-                           </children>
-                        </VBox>
-                     </children>
-                     <BorderPane.margin>
-                        <Insets top="20.0" />
-                     </BorderPane.margin>
-                  </GridPane>
-               </center>
-            </BorderPane>
-         </content>
-      </Tab>
-      <Tab fx:id="tabPolarChart" text="Polar Chart">
-         <content>
-            <BorderPane>
-               <center>
-                  <ImageView fx:id="imgExample11" fitHeight="500.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
-                     <image>
-                        <Image url="@../../../images/image_polar_chart.png" />
-                     </image>
-                  </ImageView>
-               </center>
-               <left>
-                  <VBox spacing="10.0" BorderPane.alignment="CENTER">
-                     <children>
-                        <Label alignment="CENTER" text="Введите данные" textAlignment="CENTER" />
-                        <HBox alignment="CENTER" spacing="15.0">
-                           <children>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Значение 1" />
-                              <TextField fx:id="txtFieldPolarValue1" promptText="Введите данные" />
-                           </children>
-                        </HBox>
-                        <HBox alignment="CENTER" spacing="15.0">
-                           <children>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Значение 2" />
-                              <TextField fx:id="txtFieldPolarValue2" promptText="Введите данные" />
-                           </children>
-                        </HBox>
-                        <HBox alignment="CENTER" spacing="15.0">
-                           <children>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Значение 3" />
-                              <TextField fx:id="txtFieldPolarValue3" promptText="Введите данные" />
-                           </children>
-                        </HBox>
-                        <HBox alignment="CENTER" spacing="15.0">
-                           <children>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Значение 4" />
-                              <TextField fx:id="txtFieldPolarValue4" promptText="Введите данные" />
-                           </children>
-                        </HBox>
-                        <Button fx:id="btnDrawChart11" alignment="CENTER" mnemonicParsing="false" onAction="#buttonDrawPolarChart" text="Построить график">
-                           <VBox.margin>
-                              <Insets left="20.0" />
-                           </VBox.margin>
-                        </Button>
-                     </children>
-                     <padding>
-                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                     </padding>
-                  </VBox>
-               </left>
-            </BorderPane>
-         </content>
-      </Tab>
-      <Tab fx:id="tabSankeyChart" text="Sankey Chart">
-         <content>
-            <BorderPane>
-               <center>
-                  <GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="1100.0" vgap="30.0" BorderPane.alignment="CENTER">
-                     <columnConstraints>
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="20.0" prefWidth="70.0" />
-                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" percentWidth="20.0" />
-                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" percentWidth="20.0" />
-                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" percentWidth="20.0" prefWidth="100.0" />
-                     </columnConstraints>
-                     <rowConstraints>
-                        <RowConstraints minHeight="10.0" percentHeight="5.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" percentHeight="20.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" percentHeight="20.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" percentHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                     </rowConstraints>
-                     <children>
-                        <VBox alignment="CENTER" maxWidth="-Infinity" prefWidth="160.0" spacing="10.0" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="CENTER">
-                           <children>
-                              <TextField fx:id="txtFieldS1Src1" maxWidth="-Infinity" prefWidth="150.0" promptText="Источник" />
-                              <TextField fx:id="txtFieldS1Src2" maxWidth="-Infinity" prefWidth="150.0" promptText="Источник" />
-                              <TextField fx:id="txtFieldS1Src3" maxWidth="-Infinity" prefWidth="150.0" promptText="Источник" />
-                              <TextField fx:id="txtFieldS1Src4" maxWidth="-Infinity" prefWidth="150.0" promptText="Источник" />
-                           </children>
-                        </VBox>
-                        <VBox alignment="CENTER" maxWidth="-Infinity" prefWidth="160.0" spacing="10.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
-                           <children>
-                              <TextField fx:id="txtFieldS1Dest1" maxWidth="-Infinity" prefWidth="150.0" promptText="Направление" />
-                              <TextField fx:id="txtFieldS1Dest2" maxWidth="-Infinity" prefWidth="150.0" promptText="Направление" />
-                              <TextField fx:id="txtFieldS1Dest3" maxWidth="-Infinity" prefWidth="150.0" promptText="Направление" />
-                              <TextField fx:id="txtFieldS1Dest4" maxWidth="-Infinity" prefWidth="150.0" promptText="Направление" />
-                           </children>
-                        </VBox>
-                        <VBox alignment="CENTER" maxWidth="-Infinity" prefWidth="160.0" spacing="10.0" GridPane.halignment="CENTER" GridPane.rowIndex="1">
-                           <children>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Stage 1" />
-                              <TextField fx:id="txtFieldStage1" promptText="Введите данные" visible="false" />
-                           </children>
-                        </VBox>
-                        <VBox alignment="CENTER" maxWidth="-Infinity" prefWidth="160.0" spacing="10.0" GridPane.halignment="CENTER" GridPane.rowIndex="2">
-                           <children>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Stage 2" />
-                              <TextField fx:id="txtFieldStage2" promptText="Введите данные" visible="false" />
-                           </children>
-                        </VBox>
-                        <Button fx:id="btnDrawChart12" alignment="CENTER" mnemonicParsing="false" onAction="#btnDrawFlowChart" text="Построить график" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
-                        <Label alignment="CENTER" text="Введите данные" textAlignment="CENTER" GridPane.halignment="CENTER" />
-                        <VBox alignment="CENTER" maxWidth="-Infinity" prefWidth="160.0" spacing="10.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
-                           <children>
-                              <TextField fx:id="txtFieldS2Src1" maxWidth="-Infinity" prefWidth="150.0" promptText="Источник" />
-                              <TextField fx:id="txtFieldS2Src2" maxWidth="-Infinity" prefWidth="150.0" promptText="Источник" />
-                              <TextField fx:id="txtFieldS2Src3" maxWidth="-Infinity" prefWidth="150.0" promptText="Источник" />
-                              <TextField fx:id="txtFieldS2Src4" maxWidth="-Infinity" prefWidth="150.0" promptText="Источник" />
-                           </children>
-                        </VBox>
-                        <VBox alignment="CENTER" maxWidth="-Infinity" prefWidth="160.0" spacing="10.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
-                           <children>
-                              <TextField fx:id="txtFieldS2Dest1" maxWidth="-Infinity" prefWidth="150.0" promptText="Направление" />
-                              <TextField fx:id="txtFieldS2Dest2" maxWidth="-Infinity" prefWidth="150.0" promptText="Направление" />
-                              <TextField fx:id="txtFieldS2Dest3" maxWidth="-Infinity" prefWidth="150.0" promptText="Направление" />
-                              <TextField fx:id="txtFieldS2Dest4" maxWidth="-Infinity" prefWidth="150.0" promptText="Направление" />
-                           </children>
-                        </VBox>
-                        <VBox alignment="CENTER" maxWidth="-Infinity" prefWidth="160.0" spacing="10.0" GridPane.halignment="CENTER" GridPane.rowIndex="3">
-                           <children>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Stage 3" />
-                              <TextField fx:id="txtFieldStage3" promptText="Введите данные" visible="false" />
-                           </children>
-                        </VBox>
-                        <VBox alignment="CENTER" maxWidth="-Infinity" prefWidth="160.0" spacing="10.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
-                           <children>
-                              <TextField fx:id="txtFieldS3Src1" maxWidth="-Infinity" prefWidth="150.0" promptText="Источник" />
-                              <TextField fx:id="txtFieldS3Src2" maxWidth="-Infinity" prefWidth="150.0" promptText="Источник" />
-                              <TextField fx:id="txtFieldS3Src3" maxWidth="-Infinity" prefWidth="150.0" promptText="Источник" />
-                              <TextField fx:id="txtFieldS3Src4" maxWidth="-Infinity" prefWidth="150.0" promptText="Источник" />
-                           </children>
-                        </VBox>
-                        <VBox alignment="CENTER" maxWidth="-Infinity" prefWidth="160.0" spacing="10.0" GridPane.columnIndex="2" GridPane.rowIndex="3">
-                           <children>
-                              <TextField fx:id="txtFieldS3Dest1" maxWidth="-Infinity" prefWidth="150.0" promptText="Направление" />
-                              <TextField fx:id="txtFieldS3Dest2" maxWidth="-Infinity" prefWidth="150.0" promptText="Направление" />
-                              <TextField fx:id="txtFieldS3Dest3" maxWidth="-Infinity" prefWidth="150.0" promptText="Направление" />
-                              <TextField fx:id="txtFieldS3Dest4" maxWidth="-Infinity" prefWidth="150.0" promptText="Направление" />
-                           </children>
-                        </VBox>
-                        <VBox alignment="CENTER" maxWidth="-Infinity" prefWidth="160.0" spacing="10.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
-                           <children>
-                              <TextField fx:id="txtFieldS1Flow1" maxWidth="-Infinity" prefWidth="150.0" promptText="Поток" />
-                              <TextField fx:id="txtFieldS1Flow2" maxWidth="-Infinity" prefWidth="150.0" promptText="Поток" />
-                              <TextField fx:id="txtFieldS1Flow3" maxWidth="-Infinity" prefWidth="150.0" promptText="Поток" />
-                              <TextField fx:id="txtFieldS1Flow4" maxWidth="-Infinity" prefWidth="150.0" promptText="Поток" />
-                           </children>
-                        </VBox>
-                        <VBox alignment="CENTER" maxWidth="-Infinity" prefWidth="160.0" spacing="10.0" GridPane.columnIndex="3" GridPane.rowIndex="2">
-                           <children>
-                              <TextField fx:id="txtFieldS2Flow1" maxWidth="-Infinity" prefWidth="150.0" promptText="Поток" />
-                              <TextField fx:id="txtFieldS2Flow2" maxWidth="-Infinity" prefWidth="150.0" promptText="Поток" />
-                              <TextField fx:id="txtFieldS2Flow3" maxWidth="-Infinity" prefWidth="150.0" promptText="Поток" />
-                              <TextField fx:id="txtFieldS2Flow4" maxWidth="-Infinity" prefWidth="150.0" promptText="Поток" />
-                           </children>
-                        </VBox>
-                        <VBox alignment="CENTER" maxWidth="-Infinity" prefWidth="160.0" spacing="10.0" GridPane.columnIndex="3" GridPane.rowIndex="3">
-                           <children>
-                              <TextField fx:id="txtFieldS3Flow1" maxWidth="-Infinity" prefWidth="150.0" promptText="Поток" />
-                              <TextField fx:id="txtFieldS3Flow2" maxWidth="-Infinity" prefWidth="150.0" promptText="Поток" />
-                              <TextField fx:id="txtFieldS3Flow3" maxWidth="-Infinity" prefWidth="150.0" promptText="Поток" />
-                              <TextField fx:id="txtFieldS3Flow4" maxWidth="-Infinity" prefWidth="150.0" promptText="Поток" />
-                           </children>
-                        </VBox>
-                     </children>
-                  </GridPane>
-               </center>
-            </BorderPane>
-         </content>
-      </Tab>
-   </tabs>
+   <Tab fx:id="tabSelectChart" closable="false" text="Выбор графика">
+      <BorderPane>
+         <center>
+            <GridPane alignment="CENTER" vgap="30.0" BorderPane.alignment="CENTER">
+               <columnConstraints>
+                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" percentWidth="50.0" />
+                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" percentWidth="50.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" percentHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" percentHeight="40.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" percentHeight="40.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" percentHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <ImageView fx:id="imgExample" fitHeight="300.0" fitWidth="500.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
+                  <Image url="@../../../images/image_area_chart.png" />
+               </ImageView>
+               <ImageView fx:id="imgExample2" fitHeight="300.0" fitWidth="500.0" pickOnBounds="true" preserveRatio="true" GridPane.columnSpan="2" GridPane.rowIndex="2">
+                  <Image url="@../../../images/image_polar_chart.png" />
+               </ImageView>
+               <ImageView fx:id="imgExample3" fitHeight="300.0" fitWidth="500.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                  <Image url="@../../../images/image_sankey_chart.png" />
+               </ImageView>
+               <Label alignment="CENTER" text="Выберите тип графика" textAlignment="CENTER" GridPane.columnSpan="2" />
+               <ToggleButton fx:id="btnAreaChart" mnemonicParsing="false" onAction="#toggleButtonSelect" text="Area Chart" GridPane.rowIndex="2" GridPane.valignment="TOP">
+                  <toggleGroup>
+                     <ToggleGroup fx:id="btnGroup" />
+                  </toggleGroup>
+                  <GridPane.margin>
+                     <Insets top="10.0" />
+                  </GridPane.margin>
+               </ToggleButton>
+               <ToggleButton fx:id="btnPolarChart" mnemonicParsing="false" onAction="#toggleButtonSelect" text="Polar Chart" toggleGroup="$btnGroup" GridPane.columnSpan="2" GridPane.rowIndex="3" GridPane.valignment="TOP">
+                  <GridPane.margin>
+                     <Insets top="10.0" />
+                  </GridPane.margin>
+               </ToggleButton>
+               <ToggleButton fx:id="btnSankeyChart" mnemonicParsing="false" onAction="#toggleButtonSelect" text="Sankey Chart" toggleGroup="$btnGroup" GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.valignment="TOP">
+                  <GridPane.margin>
+                     <Insets top="10.0" />
+                  </GridPane.margin>
+               </ToggleButton>
+            </GridPane>
+         </center>
+      </BorderPane>
+   </Tab>
+   <Tab fx:id="tabAreaChart" text="Area Chart">
+      <BorderPane>
+         <center>
+            <GridPane fx:id="areaGridPane" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="1100.0" vgap="30.0" BorderPane.alignment="CENTER">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="20.0" prefWidth="70.0" />
+                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" percentWidth="20.0" />
+                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" percentWidth="20.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" percentHeight="5.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" percentHeight="20.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <BorderPane.margin>
+                  <Insets top="20.0" />
+               </BorderPane.margin>
+               <VBox alignment="CENTER" maxWidth="-Infinity" prefWidth="160.0" spacing="10.0" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                  <TextField fx:id="txtFieldOx11" maxWidth="-Infinity" prefWidth="150.0" promptText="Данные по оси ОХ" />
+                  <TextField fx:id="txtFieldOx12" maxWidth="-Infinity" prefWidth="150.0" promptText="Данные по оси ОХ" />
+                  <TextField fx:id="txtFieldOx13" maxWidth="-Infinity" prefWidth="150.0" promptText="Данные по оси ОХ" />
+                  <TextField fx:id="txtFieldOx14" maxWidth="-Infinity" prefWidth="150.0" promptText="Данные по оси ОХ" />
+               </VBox>
+               <VBox alignment="CENTER" maxWidth="-Infinity" prefWidth="160.0" spacing="10.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                  <TextField fx:id="txtFieldOy11" maxWidth="-Infinity" prefWidth="150.0" promptText="Данные по оси ОY" />
+                  <TextField fx:id="txtFieldOy12" maxWidth="-Infinity" prefWidth="150.0" promptText="Данные по оси ОY" />
+                  <TextField fx:id="txtFieldOy13" maxWidth="-Infinity" prefWidth="150.0" promptText="Данные по оси ОY" />
+                  <TextField fx:id="txtFieldOy14" maxWidth="-Infinity" prefWidth="150.0" promptText="Данные по оси ОY" />
+               </VBox>
+               <VBox alignment="CENTER" maxWidth="-Infinity" prefWidth="160.0" spacing="10.0" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Группа значений 1" />
+                  <TextField fx:id="txtFieldGroupValue1" promptText="Введите данные" />
+               </VBox>
+               <Button fx:id="btnDrawAreaChart" alignment="CENTER" mnemonicParsing="false" onAction="#buttonDrawAreaChart" text="Построить график" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+               <Label alignment="CENTER" text="Введите данные" textAlignment="CENTER" GridPane.halignment="CENTER" />
+               <Button fx:id="btnACAddGroupOfValues" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#buttonACAddGroupOfValues" text="+ Добавить группу значений" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+            </GridPane>
+         </center>
+      </BorderPane>
+   </Tab>
+   <Tab fx:id="tabPolarChart" text="Polar Chart">
+      <BorderPane>
+         <center>
+            <ImageView fx:id="imgExample11" fitHeight="500.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+               <Image url="@../../../images/image_polar_chart.png" />
+            </ImageView>
+         </center>
+         <left>
+            <VBox spacing="10.0" BorderPane.alignment="CENTER">
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+               <Label alignment="CENTER" text="Введите данные" textAlignment="CENTER" />
+               <HBox alignment="CENTER" spacing="15.0">
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Значение 1" />
+                  <TextField fx:id="txtFieldPolarValue1" promptText="Введите данные" />
+               </HBox>
+               <HBox alignment="CENTER" spacing="15.0">
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Значение 2" />
+                  <TextField fx:id="txtFieldPolarValue2" promptText="Введите данные" />
+               </HBox>
+               <HBox alignment="CENTER" spacing="15.0">
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Значение 3" />
+                  <TextField fx:id="txtFieldPolarValue3" promptText="Введите данные" />
+               </HBox>
+               <HBox alignment="CENTER" spacing="15.0">
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Значение 4" />
+                  <TextField fx:id="txtFieldPolarValue4" promptText="Введите данные" />
+               </HBox>
+               <Button fx:id="btnDrawPolarChart" alignment="CENTER" mnemonicParsing="false" onAction="#buttonDrawPolarChart" text="Построить график">
+                  <VBox.margin>
+                     <Insets left="20.0" />
+                  </VBox.margin>
+               </Button>
+            </VBox>
+         </left>
+      </BorderPane>
+   </Tab>
+   <Tab fx:id="tabFlowChart" text="Flow Chart">
+      <BorderPane>
+         <center>
+            <GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="1100.0" vgap="30.0" BorderPane.alignment="CENTER">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="20.0" prefWidth="70.0" />
+                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" percentWidth="20.0" />
+                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" percentWidth="20.0" />
+                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" percentWidth="20.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" percentHeight="5.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" percentHeight="20.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" percentHeight="20.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" percentHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <VBox alignment="CENTER" maxWidth="-Infinity" prefWidth="160.0" spacing="10.0" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                  <TextField fx:id="txtFieldS1Src1" maxWidth="-Infinity" prefWidth="150.0" promptText="Источник" />
+                  <TextField fx:id="txtFieldS1Src2" maxWidth="-Infinity" prefWidth="150.0" promptText="Источник" />
+                  <TextField fx:id="txtFieldS1Src3" maxWidth="-Infinity" prefWidth="150.0" promptText="Источник" />
+                  <TextField fx:id="txtFieldS1Src4" maxWidth="-Infinity" prefWidth="150.0" promptText="Источник" />
+               </VBox>
+               <VBox alignment="CENTER" maxWidth="-Infinity" prefWidth="160.0" spacing="10.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                  <TextField fx:id="txtFieldS1Dest1" maxWidth="-Infinity" prefWidth="150.0" promptText="Направление" />
+                  <TextField fx:id="txtFieldS1Dest2" maxWidth="-Infinity" prefWidth="150.0" promptText="Направление" />
+                  <TextField fx:id="txtFieldS1Dest3" maxWidth="-Infinity" prefWidth="150.0" promptText="Направление" />
+                  <TextField fx:id="txtFieldS1Dest4" maxWidth="-Infinity" prefWidth="150.0" promptText="Направление" />
+               </VBox>
+               <VBox alignment="CENTER" maxWidth="-Infinity" prefWidth="160.0" spacing="10.0" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Stage 1" />
+                  <TextField fx:id="txtFieldStage1" promptText="Введите данные" visible="false" />
+               </VBox>
+               <VBox alignment="CENTER" maxWidth="-Infinity" prefWidth="160.0" spacing="10.0" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Stage 2" />
+                  <TextField fx:id="txtFieldStage2" promptText="Введите данные" visible="false" />
+               </VBox>
+               <Button fx:id="btnDrawFlowChart" alignment="CENTER" mnemonicParsing="false" onAction="#buttonDrawFlowChart" text="Построить график" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
+               <Label alignment="CENTER" text="Введите данные" textAlignment="CENTER" GridPane.halignment="CENTER" />
+               <VBox alignment="CENTER" maxWidth="-Infinity" prefWidth="160.0" spacing="10.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                  <TextField fx:id="txtFieldS2Src1" maxWidth="-Infinity" prefWidth="150.0" promptText="Источник" />
+                  <TextField fx:id="txtFieldS2Src2" maxWidth="-Infinity" prefWidth="150.0" promptText="Источник" />
+                  <TextField fx:id="txtFieldS2Src3" maxWidth="-Infinity" prefWidth="150.0" promptText="Источник" />
+                  <TextField fx:id="txtFieldS2Src4" maxWidth="-Infinity" prefWidth="150.0" promptText="Источник" />
+               </VBox>
+               <VBox alignment="CENTER" maxWidth="-Infinity" prefWidth="160.0" spacing="10.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                  <TextField fx:id="txtFieldS2Dest1" maxWidth="-Infinity" prefWidth="150.0" promptText="Направление" />
+                  <TextField fx:id="txtFieldS2Dest2" maxWidth="-Infinity" prefWidth="150.0" promptText="Направление" />
+                  <TextField fx:id="txtFieldS2Dest3" maxWidth="-Infinity" prefWidth="150.0" promptText="Направление" />
+                  <TextField fx:id="txtFieldS2Dest4" maxWidth="-Infinity" prefWidth="150.0" promptText="Направление" />
+               </VBox>
+               <VBox alignment="CENTER" maxWidth="-Infinity" prefWidth="160.0" spacing="10.0" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Stage 3" />
+                  <TextField fx:id="txtFieldStage3" promptText="Введите данные" visible="false" />
+               </VBox>
+               <VBox alignment="CENTER" maxWidth="-Infinity" prefWidth="160.0" spacing="10.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                  <TextField fx:id="txtFieldS3Src1" maxWidth="-Infinity" prefWidth="150.0" promptText="Источник" />
+                  <TextField fx:id="txtFieldS3Src2" maxWidth="-Infinity" prefWidth="150.0" promptText="Источник" />
+                  <TextField fx:id="txtFieldS3Src3" maxWidth="-Infinity" prefWidth="150.0" promptText="Источник" />
+                  <TextField fx:id="txtFieldS3Src4" maxWidth="-Infinity" prefWidth="150.0" promptText="Источник" />
+               </VBox>
+               <VBox alignment="CENTER" maxWidth="-Infinity" prefWidth="160.0" spacing="10.0" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                  <TextField fx:id="txtFieldS3Dest1" maxWidth="-Infinity" prefWidth="150.0" promptText="Направление" />
+                  <TextField fx:id="txtFieldS3Dest2" maxWidth="-Infinity" prefWidth="150.0" promptText="Направление" />
+                  <TextField fx:id="txtFieldS3Dest3" maxWidth="-Infinity" prefWidth="150.0" promptText="Направление" />
+                  <TextField fx:id="txtFieldS3Dest4" maxWidth="-Infinity" prefWidth="150.0" promptText="Направление" />
+               </VBox>
+               <VBox alignment="CENTER" maxWidth="-Infinity" prefWidth="160.0" spacing="10.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                  <TextField fx:id="txtFieldS1Flow1" maxWidth="-Infinity" prefWidth="150.0" promptText="Поток" />
+                  <TextField fx:id="txtFieldS1Flow2" maxWidth="-Infinity" prefWidth="150.0" promptText="Поток" />
+                  <TextField fx:id="txtFieldS1Flow3" maxWidth="-Infinity" prefWidth="150.0" promptText="Поток" />
+                  <TextField fx:id="txtFieldS1Flow4" maxWidth="-Infinity" prefWidth="150.0" promptText="Поток" />
+               </VBox>
+               <VBox alignment="CENTER" maxWidth="-Infinity" prefWidth="160.0" spacing="10.0" GridPane.columnIndex="3" GridPane.rowIndex="2">
+                  <TextField fx:id="txtFieldS2Flow1" maxWidth="-Infinity" prefWidth="150.0" promptText="Поток" />
+                  <TextField fx:id="txtFieldS2Flow2" maxWidth="-Infinity" prefWidth="150.0" promptText="Поток" />
+                  <TextField fx:id="txtFieldS2Flow3" maxWidth="-Infinity" prefWidth="150.0" promptText="Поток" />
+                  <TextField fx:id="txtFieldS2Flow4" maxWidth="-Infinity" prefWidth="150.0" promptText="Поток" />
+               </VBox>
+               <VBox alignment="CENTER" maxWidth="-Infinity" prefWidth="160.0" spacing="10.0" GridPane.columnIndex="3" GridPane.rowIndex="3">
+                  <TextField fx:id="txtFieldS3Flow1" maxWidth="-Infinity" prefWidth="150.0" promptText="Поток" />
+                  <TextField fx:id="txtFieldS3Flow2" maxWidth="-Infinity" prefWidth="150.0" promptText="Поток" />
+                  <TextField fx:id="txtFieldS3Flow3" maxWidth="-Infinity" prefWidth="150.0" promptText="Поток" />
+                  <TextField fx:id="txtFieldS3Flow4" maxWidth="-Infinity" prefWidth="150.0" promptText="Поток" />
+               </VBox>
+            </GridPane>
+         </center>
+      </BorderPane>
+   </Tab>
 </TabPane>
