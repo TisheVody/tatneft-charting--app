@@ -2,6 +2,10 @@ package com.tatneft.chartingApp.Charts;
 
 import com.tatneft.chartingApp.Colors.FlowColors;
 import com.tatneft.chartingApp.ThemesForCharts;
+import com.tatneft.chartingApp.models.ACGroupModel;
+import com.tatneft.chartingApp.models.Point;
+import com.tatneft.chartingApp.utility.ACGroupListCell;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableArray;
 import javafx.collections.ObservableList;
@@ -23,28 +27,38 @@ import static javafx.beans.binding.Bindings.bindContent;
 
 public class AreaChart {
 
-    public static ObservableList<String> getTextFromAreaTextFields(ObservableList<TextField> textFields) {
-        int amount = 9;
-        Text[] groupNumber;
-        //ObservableList<TextField> textFields = createAreaTextFields();
+//    public static ObservableList<String> getTextFromAreaTextFields(ObservableList<SimpleStringProperty> textFields) {
+//        int amount = 9;
+//        Text[] groupNumber;
+//        //ObservableList<TextField> textFields = createAreaTextFields();
+//        ObservableList<String> text = FXCollections.observableArrayList();
+//        //bindContent(textFields, createAreaTextFields());
+//        ACGroupListCell.textFieldsList
+//
+//        for (int i = 0; i < amount; i++) {
+//            text.add(i, textFields.get(i).getText());
+//        }
+//        return text;
+//    }
+    private static CategoryDataset createAreaDataset(ObservableList<ACGroupModel> models) {
         ObservableList<String> text = FXCollections.observableArrayList();
-        //bindContent(textFields, createAreaTextFields());
+//        for (Point textField : points) {
+//            text.add(textField.get());
+//        }
 
-
-        for (int i = 0; i < amount; i++) {
-            text.add(i, textFields.get(i).getText());
-        }
-        return text;
-    }
-    private static CategoryDataset createAreaDataset(ObservableList<TextField> textFields) {
-        ObservableList<String> text = getTextFromAreaTextFields(textFields);
+        //ObservableList<String> text = getTextFromAreaTextFields(textFields);
         DefaultCategoryDataset dataset = new DefaultCategoryDataset();
 
-
-        dataset.addValue(Double.parseDouble(text.get(1)), text.get(0), text.get(5));
-        dataset.addValue(Double.parseDouble(text.get(2)), text.get(0), text.get(6));
-        dataset.addValue(Double.parseDouble(text.get(3)), text.get(0), text.get(7));
-        dataset.addValue(Double.parseDouble(text.get(4)), text.get(0), text.get(8));
+        for(ACGroupModel model: models) {
+            for(Point point : model.listOfPointsProperty()) {
+                dataset.addValue(Double.parseDouble(point.getX()), model.getGroupName(), point.getY());
+            }
+        }
+//
+//        dataset.addValue(Double.parseDouble(text.get(1)), text.get(0), text.get(5));
+//        dataset.addValue(Double.parseDouble(text.get(2)), text.get(0), text.get(6));
+//        dataset.addValue(Double.parseDouble(text.get(3)), text.get(0), text.get(7));
+//        dataset.addValue(Double.parseDouble(text.get(4)), text.get(0), text.get(8));
         return dataset;
     }
     private static JFreeChart createAreaChart(CategoryDataset dataset) {
@@ -64,7 +78,7 @@ public class AreaChart {
         areaChart.getLegend().setFrame(BlockBorder.NONE);
         return areaChart;
     }
-    public static void drawAreaChart(ObservableList<TextField> textFields) {
+    public static void drawAreaChart(ObservableList<ACGroupModel> textFields) {
         CategoryDataset areaDataset = createAreaDataset(textFields);
         JFreeChart areaChart = createAreaChart(areaDataset);
         ChartFrame areaFrame = new ChartFrame("Area Chart", areaChart);

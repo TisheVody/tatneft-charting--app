@@ -3,6 +3,11 @@ package com.tatneft.chartingApp;
 import com.tatneft.chartingApp.Charts.AreaChart;
 import com.tatneft.chartingApp.Charts.FlowChart;
 import com.tatneft.chartingApp.Charts.PolarChart;
+import com.tatneft.chartingApp.models.ACGroupModel;
+import com.tatneft.chartingApp.models.Point;
+import com.tatneft.chartingApp.utility.ACGroupList;
+import javafx.beans.Observable;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -260,6 +265,13 @@ public class Controller implements Initializable {
 
     @FXML
     private GridPane areaGridPane;
+
+    private final ObservableList<ACGroupModel> groupListModel = FXCollections.observableArrayList(group ->
+            new Observable[] {
+                    group.groupNameProperty(),
+                    group.listOfPointsProperty()
+            }
+    );
 
 
 
@@ -549,24 +561,35 @@ public class Controller implements Initializable {
         return textFields;
     }
     public void buttonACAddGroupOfValues (ActionEvent event) {
-        int amount = 9;
-        ObservableList<TextField> textFields = createAreaTextFields();
+        final ObservableList<Point> valuesList = FXCollections.observableArrayList(group ->
+                new Observable[] {
+                        group.xProperty(),
+                        group.yProperty()
+                }
+        );
+        //ObservableList<Point> valuesList = FXCollections.observableArrayList();
+        groupListModel.add(new ACGroupModel("group 1", valuesList));
 
-        for (int i = 0; i < amount; i++) {
-            assert false;
-            areaGridPane.add(textFields.get(i),1,i + 3);
-        }
+        ACGroupList gList = new ACGroupList(groupListModel);
+        areaGridPane.add(gList, 0, 3);
+        //int amount = 9;
+//        ObservableList<TextField> textFields = createAreaTextFields();
+//
+//        for (int i = 0; i < amount; i++) {
+//            assert false;
+//            areaGridPane.add(textFields.get(i),1,i + 3);
+//        }
     }
 
-    public void buttonDrawAreaChart (ActionEvent event) {
-        int amount = 9;
-        ObservableList<TextField> textFields = FXCollections.observableArrayList();
-        for (int i = 0; i < amount; i++) {
-            textFields.add(new TextField());
-        }
-        AreaChart.drawAreaChart(textFields);
+    public void buttonDrawAreaChart(ActionEvent event) {
+//        int amount = 9;
+//        ObservableList<TextField> textFields = FXCollections.observableArrayList();
+//        for (int i = 0; i < amount; i++) {
+//            textFields.add(new TextField());
+//        }
 
-        //btnDrawAreaChart.disabledProperty().bind(txtFieldGroupValue1.textProperty().isEmpty());
+        //ObservableList<Point> valuesList = FXCollections.observableArrayList();
+        AreaChart.drawAreaChart(groupListModel);
     }
 
 
