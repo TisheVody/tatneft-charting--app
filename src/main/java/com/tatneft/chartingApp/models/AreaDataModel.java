@@ -12,8 +12,8 @@ public class AreaDataModel {
         return areaValues;
     }
 
-    public void delete(AreaValues selectedPerson) {
-        this.areaValues.remove(selectedPerson);
+    public void delete(AreaValues selectedValues) {
+        this.areaValues.remove(selectedValues);
     }
 
     public void add(AreaValues v) {

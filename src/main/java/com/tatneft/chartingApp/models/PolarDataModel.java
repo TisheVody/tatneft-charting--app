@@ -12,8 +12,8 @@ public class PolarDataModel {
         return polarValues;
     }
 
-    public void delete(PolarValues selectedPerson) {
-        this.polarValues.remove(selectedPerson);
+    public void delete(PolarValues selectedValues) {
+        this.polarValues.remove(selectedValues);
     }
 
     public void add(PolarValues v) {
