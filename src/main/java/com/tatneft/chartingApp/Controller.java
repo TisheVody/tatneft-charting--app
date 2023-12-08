@@ -2,7 +2,6 @@ package com.tatneft.chartingApp;
 
 import com.tatneft.chartingApp.Charts.*;
 import com.tatneft.chartingApp.models.*;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
@@ -10,36 +9,15 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import javafx.scene.control.*;
-import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 
 
 public class Controller implements Initializable {
-    @FXML
-    private Button btnAddGroup;
-
-    @FXML
-    private Button btnAddGroup1;
-
-    @FXML
-    private Button btnAddGroup11;
 
     @FXML
     private ToggleButton btnAreaChart;
-
-    @FXML
-    private Button btnDrawChart;
-
-    @FXML
-    private Button btnDrawChart1;
-
-    @FXML
-    private Button btnDrawChart11;
-
-    @FXML
-    private ToggleGroup btnGroup;
 
     @FXML
     private ToggleButton btnPolarChart;
@@ -75,21 +53,6 @@ public class Controller implements Initializable {
     private TableColumn<?, ?> clmnPCX;
 
     @FXML
-    private ImageView imgExample;
-
-    @FXML
-    private ImageView imgExample11;
-
-    @FXML
-    private ImageView imgExample111;
-
-    @FXML
-    private ImageView imgExample2;
-
-    @FXML
-    private ImageView imgExample3;
-
-    @FXML
     private TabPane mainTabPane;
 
     @FXML
@@ -100,9 +63,6 @@ public class Controller implements Initializable {
 
     @FXML
     private Tab tabPolarChart;
-
-    @FXML
-    private Tab tabSelectChart;
 
     @FXML
     private TableView<AreaValues> tblViewArea;
@@ -161,7 +121,7 @@ public class Controller implements Initializable {
         clmnFCFlow.setCellValueFactory(new PropertyValueFactory<>("flow"));
     }
     @FXML
-    private void clickAddGroup(ActionEvent event) {
+    private void clickAddGroup() {
         if (tabAreaChart.isSelected()) {
             AreaValues v = new AreaValues(tfACGName.getText(), tfACX.getText(), tfACY.getText());
             areaDataModel.add(v);
@@ -178,7 +138,7 @@ public class Controller implements Initializable {
     }
 
     @FXML
-    private void clickDelete(ActionEvent event) {
+    private void clickDelete() {
         if (tabAreaChart.isSelected()) {
             AreaValues selectedValues = tblViewArea.getSelectionModel().getSelectedItem();
             areaDataModel.delete(selectedValues);
@@ -194,7 +154,7 @@ public class Controller implements Initializable {
     }
 
     @FXML
-    private void toggleButtonSelect (ActionEvent event) {
+    private void toggleButtonSelect () {
         ImageView image = null;
 
         if (btnAreaChart.isSelected()) {
@@ -215,17 +175,17 @@ public class Controller implements Initializable {
     }
 
     @FXML
-    private void clickDrawAreaChart (ActionEvent event) {
+    private void clickDrawAreaChart () {
         AreaChart.drawAreaChart(areaDataModel.getAreaValues());
     }
 
     @FXML
-    private void clickDrawPolarChart (ActionEvent event) {
+    private void clickDrawPolarChart () {
         PolarChart.drawPolarChart(polarDataModel.getPolarValues());
     }
 
     @FXML
-    private void clickDrawFlowChart (ActionEvent event) {
+    private void clickDrawFlowChart () {
         FlowChart.drawFlowChart(flowDataModel.getFlowValues());
     }
 }
