@@ -1,6 +1,9 @@
 package com.tatneft.chartingApp.Charts;
 
 import com.tatneft.chartingApp.ThemesForCharts;
+import com.tatneft.chartingApp.models.AreaValues;
+import com.tatneft.chartingApp.models.PolarValues;
+import javafx.collections.ObservableList;
 import javafx.util.Pair;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartFrame;
@@ -29,15 +32,16 @@ public class PolarChart {
         return chart;
     }
 
-    private static java.util.List<XYSeries> generateSegments(Double[] radius, double segmentsAmount) {
+    private static java.util.List<XYSeries> generateSegments(ObservableList<PolarValues> radius) {
         java.util.List<XYSeries> seriesList = new ArrayList<>();
+        double segmentsAmount = radius.size();
         double segmentSize = 360.0 / segmentsAmount;
         for(int s = 0; s < segmentsAmount; s++) {
             //radius = radius - s * 10;
             //radius = new Double[]{radius[s]};
-            XYSeries series = new XYSeries("Series " + s);
+            XYSeries series = new XYSeries("Series " + radius.get(s).getSegmentName());
             for(double i = segmentSize * s + 0.5; i < segmentSize * (s + 1) - 0.5; i++) {
-                for (int j = 0; j < radius[s]; j++) {
+                for (int j = 0; j < Double.parseDouble(radius.get(s).getX()); j++) {
                     series.add(i, j);
                 }
             }
@@ -46,20 +50,18 @@ public class PolarChart {
         return seriesList;
     }
 
-    private static XYSeriesCollection createPolarDataset(Double[]value) {
+    private static XYSeriesCollection createPolarDataset(ObservableList<PolarValues> listOfValues) {
         XYSeriesCollection dataSet = new XYSeriesCollection();
 
-        java.util.List<XYSeries> seriesList = generateSegments(value,4.0);
-
-        dataSet.addSeries(seriesList.get(0));
-        dataSet.addSeries(seriesList.get(1));
-        dataSet.addSeries(seriesList.get(2));
-        dataSet.addSeries(seriesList.get(3));
+        java.util.List<XYSeries> seriesList = generateSegments(listOfValues);
+        for (XYSeries series : seriesList) {
+            dataSet.addSeries(series);
+        }
         return dataSet;
     }
 
-    public static void drawPolarChart(Double[]value){
-        XYSeriesCollection polarDataset = createPolarDataset(value);
+    public static void drawPolarChart(ObservableList<PolarValues> listOfValues){
+        XYSeriesCollection polarDataset = createPolarDataset(listOfValues);
         JFreeChart polarChart = createPolarChart(polarDataset);
         ChartFrame polarFrame = new ChartFrame("Polar Chart", polarChart);
         polarFrame.setVisible(true);
