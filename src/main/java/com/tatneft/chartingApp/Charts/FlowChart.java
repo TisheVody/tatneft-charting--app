@@ -54,19 +54,18 @@ public class FlowChart extends JFrame {
         FlowPlot plot = new FlowPlot(dataset);
         plot.setBackgroundPaint(Color.BLACK);
         plot.setNodeColorSwatch(FlowColors.createFancyLightColors());
-        //plot.setDefaultNodeLabelPaint(Color.WHITE);
+        plot.setDefaultNodeLabelPaint(Color.WHITE);
         JFreeChart chart = new JFreeChart(title, plot);
         return chart;
     }
 
     private static JFreeChart createChart(FlowDataset<String> dataset) {
-        JFreeChart chart = createFlowPlot("Flow Plot", dataset);
+        JFreeChart chart = createFlowPlot("Flow Chart", dataset);
         return chart;
     }
 
     public static void drawFlowChart(ObservableList<FlowValues> flowValues) {
         FlowChart demo = new FlowChart(flowValues);
-        demo.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         demo.pack();
         UIUtils.centerFrameOnScreen(demo);
         demo.setVisible(true);

@@ -19,60 +19,47 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<TabPane fx:id="mainTabPane" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1"
-         fx:controller="com.tatneft.chartingApp.Controller">
+<TabPane fx:id="mainTabPane" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tatneft.chartingApp.Controller">
    <Tab fx:id="tabSelectChart" closable="false" text="Выбор графика">
       <BorderPane>
          <center>
             <GridPane alignment="CENTER" vgap="30.0" BorderPane.alignment="CENTER">
                <columnConstraints>
-                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" percentWidth="50.0"/>
-                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" percentWidth="50.0"/>
+                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" percentWidth="50.0" />
+                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" percentWidth="50.0" />
                </columnConstraints>
                <rowConstraints>
-                  <RowConstraints minHeight="10.0" percentHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
-                  <RowConstraints minHeight="10.0" percentHeight="40.0" vgrow="SOMETIMES"/>
-                  <RowConstraints minHeight="10.0" percentHeight="40.0" prefHeight="30.0" vgrow="SOMETIMES"/>
-                  <RowConstraints minHeight="10.0" percentHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                  <RowConstraints minHeight="10.0" percentHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" percentHeight="40.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" percentHeight="40.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" percentHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                </rowConstraints>
-               <ImageView fx:id="imgExample" fitHeight="300.0" fitWidth="500.0"
-                          onMouseClicked="#toggleButtonSelect" pickOnBounds="true" preserveRatio="true"
-                          GridPane.rowIndex="1">
-                  <Image url="@../../../images/image_area_chart.png"/>
+               <ImageView fx:id="imgExample" fitHeight="300.0" fitWidth="500.0" onMouseClicked="#toggleButtonSelect" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
+                  <Image url="@../../../images/image_area_chart.png" />
                </ImageView>
-               <ImageView fx:id="imgExample2" fitHeight="300.0" fitWidth="500.0"
-                          onMouseClicked="#toggleButtonSelect" pickOnBounds="true" preserveRatio="true"
-                          GridPane.columnSpan="2" GridPane.rowIndex="2">
-                  <Image url="@../../../images/image_polar_chart.png"/>
+               <ImageView fx:id="imgExample2" fitHeight="300.0" fitWidth="500.0" onMouseClicked="#toggleButtonSelect" pickOnBounds="true" preserveRatio="true" GridPane.columnSpan="2" GridPane.rowIndex="2">
+                  <Image url="@../../../images/image_polar_chart.png" />
                </ImageView>
-               <ImageView fx:id="imgExample3" fitHeight="300.0" fitWidth="500.0"
-                          onMouseClicked="#toggleButtonSelect" pickOnBounds="true" preserveRatio="true"
-                          GridPane.columnIndex="1" GridPane.rowIndex="1">
-                  <Image url="@../../../images/image_sankey_chart.png"/>
+               <ImageView fx:id="imgExample3" fitHeight="300.0" fitWidth="500.0" onMouseClicked="#toggleButtonSelect" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                  <Image url="@../../../images/image_sankey_chart.png" />
                </ImageView>
-               <Label alignment="CENTER" text="Выберите тип графика" textAlignment="CENTER"
-                      GridPane.columnSpan="2"/>
-               <ToggleButton fx:id="btnAreaChart" mnemonicParsing="false" onAction="#toggleButtonSelect"
-                             text="Area Chart" GridPane.rowIndex="2" GridPane.valignment="TOP">
+               <Label alignment="CENTER" text="Выберите тип графика" textAlignment="CENTER" GridPane.columnSpan="2" />
+               <ToggleButton fx:id="btnAreaChart" mnemonicParsing="false" onAction="#toggleButtonSelect" text="Area Chart" GridPane.rowIndex="2" GridPane.valignment="TOP">
                   <toggleGroup>
-                     <ToggleGroup fx:id="btnGroup"/>
+                     <ToggleGroup fx:id="btnGroup" />
                   </toggleGroup>
                   <GridPane.margin>
-                     <Insets top="10.0"/>
+                     <Insets top="10.0" />
                   </GridPane.margin>
                </ToggleButton>
-               <ToggleButton fx:id="btnPolarChart" mnemonicParsing="false" onAction="#toggleButtonSelect"
-                             text="Polar Chart" toggleGroup="$btnGroup" GridPane.columnSpan="2"
-                             GridPane.rowIndex="3" GridPane.valignment="TOP">
+               <ToggleButton fx:id="btnPolarChart" mnemonicParsing="false" onAction="#toggleButtonSelect" text="Polar Chart" toggleGroup="$btnGroup" GridPane.columnSpan="2" GridPane.rowIndex="3" GridPane.valignment="TOP">
                   <GridPane.margin>
-                     <Insets top="10.0"/>
+                     <Insets top="10.0" />
                   </GridPane.margin>
                </ToggleButton>
-               <ToggleButton fx:id="btnSankeyChart" mnemonicParsing="false" onAction="#toggleButtonSelect"
-                             text="Sankey Chart" toggleGroup="$btnGroup" GridPane.columnIndex="1"
-                             GridPane.rowIndex="2" GridPane.valignment="TOP">
+               <ToggleButton fx:id="btnSankeyChart" mnemonicParsing="false" onAction="#toggleButtonSelect" text="Flow Chart" toggleGroup="$btnGroup" GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.valignment="TOP">
                   <GridPane.margin>
-                     <Insets top="10.0"/>
+                     <Insets top="10.0" />
                   </GridPane.margin>
                </ToggleButton>
             </GridPane>
@@ -81,86 +68,94 @@
    </Tab>
    <Tab fx:id="tabAreaChart" text="Area Chart">
       <BorderPane>
-         <top>
-            <Label alignment="CENTER" text="Введите данные" textAlignment="CENTER" BorderPane.alignment="CENTER"/>
-         </top>
-         <right>
-            <VBox alignment="CENTER" prefWidth="300.0" spacing="20.0">
-               <BorderPane.margin>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
-               </BorderPane.margin>
-               <HBox spacing="5.0">
-                  <TextField fx:id="tfACGName" maxWidth="-Infinity" promptText="Group name"/>
-                  <TextField fx:id="tfACX" maxWidth="-Infinity" promptText="X"/>
-                  <TextField fx:id="tfACY" maxWidth="-Infinity" promptText="Y"/>
-               </HBox>
-               <HBox alignment="CENTER" spacing="20.0">
-                  <Button fx:id="btnAddGroup" onAction="#clickAddGroup" text="Добавить группу значений"/>
-                  <Button onAction="#clickDelete" text="Удалить"/>
-               </HBox>
-               <Button fx:id="btnDrawChart" alignment="CENTER" mnemonicParsing="false"
-                       onAction="#clickDrawAreaChart" text="Построить график"/>
-            </VBox>
-         </right>
-         <center>
-            <TableView fx:id="tblViewArea" prefHeight="200.0" prefWidth="200.0">
-               <columns>
-                  <TableColumn fx:id="clmnACGroupName" prefWidth="75.0" text="Group name"/>
-                  <TableColumn fx:id="clmnACX" prefWidth="75.0" text="X"/>
-                  <TableColumn fx:id="clmnACY" prefWidth="75.0" text="Y"/>
-               </columns>
-               <BorderPane.margin>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
-               </BorderPane.margin>
-            </TableView>
-         </center>
          <padding>
-            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
-         </padding>
-      </BorderPane>
-   </Tab>
-   <Tab fx:id="tabPolarChart" text="Polar Chart">
-      <BorderPane>
-         <padding>
-            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </padding>
          <left>
-            <TableView fx:id="tblViewPolar" maxWidth="-Infinity" prefHeight="200.0" prefWidth="200.0"
-                       BorderPane.alignment="CENTER">
+            <TableView fx:id="tblViewArea" prefHeight="200.0" prefWidth="280.0" BorderPane.alignment="CENTER">
                <columns>
-                  <TableColumn fx:id="clmnPCGroupName" prefWidth="120.0" text="Group name"/>
-                  <TableColumn fx:id="clmnPCX" text="X"/>
+                  <TableColumn fx:id="clmnACGroupName" prefWidth="120.0" text="Название группы" />
+                  <TableColumn fx:id="clmnACX" text="X" />
+                  <TableColumn fx:id="clmnACY" text="Y" />
                </columns>
                <BorderPane.margin>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </BorderPane.margin>
             </TableView>
          </left>
          <center>
             <VBox alignment="CENTER" prefWidth="300.0" spacing="20.0" BorderPane.alignment="CENTER">
                <BorderPane.margin>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </BorderPane.margin>
+               <VBox alignment="CENTER_LEFT" spacing="20.0">
+                  <children>
+                     <HBox spacing="5.0">
+                        <TextField fx:id="tfACGName" maxWidth="-Infinity" promptText="Название группы" />
+                        <TextField fx:id="tfACX" maxWidth="-Infinity" promptText="X" />
+                        <TextField fx:id="tfACY" maxWidth="-Infinity" promptText="Y" />
+                     </HBox>
+                     <HBox alignment="CENTER_LEFT" spacing="20.0">
+                        <Button fx:id="btnAddGroup" onAction="#clickAddGroup" text="Добавить группу значений" />
+                        <Button onAction="#clickDelete" text="Удалить" />
+                     </HBox>
+                     <Button fx:id="btnDrawChart" alignment="CENTER" mnemonicParsing="false" onAction="#clickDrawAreaChart" text="Построить график">
+                        <VBox.margin>
+                           <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                        </VBox.margin>
+                     </Button>
+                  </children>
+                  <VBox.margin>
+                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                  </VBox.margin>
+               </VBox>
+               <ImageView fx:id="imgExample112" fitHeight="500.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@../../../images/image_area_chart.png" />
+                  </image>
+               </ImageView>
+            </VBox>
+         </center>
+      </BorderPane>
+   </Tab>
+   <Tab fx:id="tabPolarChart" text="Polar Chart">
+      <BorderPane>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+         <left>
+            <TableView fx:id="tblViewPolar" maxWidth="-Infinity" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <columns>
+                  <TableColumn fx:id="clmnPCGroupName" prefWidth="120.0" text="Название группы" />
+                  <TableColumn fx:id="clmnPCX" text="X" />
+               </columns>
+               <BorderPane.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </BorderPane.margin>
+            </TableView>
+         </left>
+         <center>
+            <VBox alignment="CENTER" prefWidth="300.0" spacing="20.0" BorderPane.alignment="CENTER">
+               <BorderPane.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </BorderPane.margin>
                <VBox alignment="CENTER_LEFT" spacing="10.0">
                   <HBox spacing="5.0">
-                     <TextField fx:id="tfPCGName" maxWidth="-Infinity" promptText="Group name"/>
-                     <TextField fx:id="tfPCX" maxWidth="-Infinity" promptText="X"/>
+                     <TextField fx:id="tfPCGName" maxWidth="-Infinity" promptText="Название группы" />
+                     <TextField fx:id="tfPCX" maxWidth="-Infinity" promptText="X" />
                   </HBox>
                   <HBox alignment="CENTER_LEFT" spacing="20.0">
-                     <Button fx:id="btnAddGroup1" onAction="#clickAddGroup"
-                             text="Добавить группу значений"/>
-                     <Button onAction="#clickDelete" text="Удалить"/>
+                     <Button fx:id="btnAddGroup1" onAction="#clickAddGroup" text="Добавить группу значений" />
+                     <Button onAction="#clickDelete" text="Удалить" />
                   </HBox>
-                  <Button fx:id="btnDrawChart1" alignment="CENTER" mnemonicParsing="false"
-                          onAction="#clickDrawPolarChart" text="Построить график">
+                  <Button fx:id="btnDrawChart1" alignment="CENTER" mnemonicParsing="false" onAction="#clickDrawPolarChart" text="Построить график">
                      <VBox.margin>
-                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                      </VBox.margin>
                   </Button>
                </VBox>
-               <ImageView fx:id="imgExample11" fitHeight="500.0" fitWidth="800.0" pickOnBounds="true"
-                          preserveRatio="true">
-                  <Image url="@../../../images/image_polar_chart.png"/>
+               <ImageView fx:id="imgExample11" fitHeight="500.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true">
+                  <Image url="@../../../images/image_polar_chart.png" />
                </ImageView>
             </VBox>
          </center>
@@ -169,49 +164,45 @@
    <Tab fx:id="tabFlowChart" text="Flow Chart">
       <BorderPane>
          <padding>
-            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </padding>
          <left>
-            <TableView fx:id="tblViewFlow" maxWidth="-Infinity" prefHeight="200.0" prefWidth="450.0"
-                       BorderPane.alignment="CENTER">
+            <TableView fx:id="tblViewFlow" maxWidth="-Infinity" prefHeight="200.0" prefWidth="450.0" BorderPane.alignment="CENTER">
                <columns>
-                  <TableColumn fx:id="clmnFCStage" prefWidth="100.0" text="Номер стадии"/>
-                  <TableColumn fx:id="clmnFCSource" prefWidth="100.0" text="Источник"/>
-                  <TableColumn fx:id="clmnFCDestination" prefWidth="100.0" text="Направление"/>
-                  <TableColumn fx:id="clmnFCFlow" prefWidth="150.0" text="Величина потока"/>
+                  <TableColumn fx:id="clmnFCStage" prefWidth="100.0" text="Номер стадии" />
+                  <TableColumn fx:id="clmnFCSource" prefWidth="100.0" text="Источник" />
+                  <TableColumn fx:id="clmnFCDestination" prefWidth="100.0" text="Направление" />
+                  <TableColumn fx:id="clmnFCFlow" prefWidth="150.0" text="Величина потока" />
                </columns>
                <BorderPane.margin>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </BorderPane.margin>
             </TableView>
          </left>
          <center>
             <VBox alignment="CENTER" prefWidth="300.0" spacing="20.0" BorderPane.alignment="CENTER">
                <BorderPane.margin>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </BorderPane.margin>
                <VBox alignment="CENTER_LEFT" spacing="10.0">
                   <HBox spacing="5.0">
-                     <TextField fx:id="tfFCStage" maxWidth="-Infinity" promptText="Номер стадии"/>
-                     <TextField fx:id="tfFCSource" maxWidth="-Infinity" promptText="Источник"/>
-                     <TextField fx:id="tfFCDestination" maxWidth="-Infinity" promptText="Направление"/>
-                     <TextField fx:id="tfFCFlow" maxWidth="-Infinity" promptText="Величина потока"/>
+                     <TextField fx:id="tfFCStage" maxWidth="-Infinity" promptText="Номер стадии" />
+                     <TextField fx:id="tfFCSource" maxWidth="-Infinity" promptText="Источник" />
+                     <TextField fx:id="tfFCDestination" maxWidth="-Infinity" promptText="Направление" />
+                     <TextField fx:id="tfFCFlow" maxWidth="-Infinity" promptText="Величина потока" />
                   </HBox>
                   <HBox alignment="CENTER_LEFT" spacing="20.0">
-                     <Button fx:id="btnAddGroup11" onAction="#clickAddGroup"
-                             text="Добавить группу значений"/>
-                     <Button onAction="#clickDelete" text="Удалить"/>
+                     <Button fx:id="btnAddGroup11" onAction="#clickAddGroup" text="Добавить группу значений" />
+                     <Button onAction="#clickDelete" text="Удалить" />
                   </HBox>
-                  <Button fx:id="btnDrawChart11" alignment="CENTER" mnemonicParsing="false"
-                          onAction="#clickDrawFlowChart" text="Построить график">
+                  <Button fx:id="btnDrawChart11" alignment="CENTER" mnemonicParsing="false" onAction="#clickDrawFlowChart" text="Построить график">
                      <VBox.margin>
-                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                      </VBox.margin>
                   </Button>
                </VBox>
-               <ImageView fx:id="imgExample111" fitHeight="500.0" fitWidth="800.0" pickOnBounds="true"
-                          preserveRatio="true">
-                  <Image url="@../../../images/image_sankey_chart.png"/>
+               <ImageView fx:id="imgExample111" fitHeight="500.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true">
+                  <Image url="@../../../images/image_sankey_chart.png" />
                </ImageView>
             </VBox>
          </center>

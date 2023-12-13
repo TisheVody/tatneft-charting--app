@@ -65,6 +65,50 @@ public class FlowColors {
         return createShadesColors();
     }
 
+    public static List<Color> createCustomTatneftColors() {
+        List<Color> result = new ArrayList<>();
+        result.add(new Color(255, 204, 87));
+        result.add(new Color(254, 99, 132));
+        result.add(new Color(54, 163, 235));
+        result.add(new Color(76, 192, 191));
+        result.add(new Color(146, 105, 246));
+        result.add(new Color(236, 110, 132));
+        result.add(new Color(246, 206, 108));
+        result.add(new Color(240, 163, 83));
+        result.add(new Color(109, 189, 190));
+        result.add(new Color(231, 232, 236));
+        result.add(new Color(197, 75, 103));
+        result.add(new Color(85, 154, 48));
+        result.add(new Color(122, 110, 206));
+        result.add(new Color(190, 100, 50));
+        result.add(new Color(201, 79, 209));
+        result.add(new Color(95, 127, 170));
+        result.add(new Color(147, 129, 39));
+        result.add(new Color(63, 142, 96));
+        result.add(new Color(186, 84, 150));
+        result.add(new Color(219, 66, 52));
+        result.add(new Color(107, 122, 160));
+        result.add(new Color(99, 176, 67));
+        result.add(new Color(214, 85, 52));
+        result.add(new Color(202, 79, 200));
+        result.add(new Color(184, 149, 57));
+        result.add(new Color(82, 168, 146));
+        result.add(new Color(194, 84, 128));
+        result.add(new Color(77, 102, 50));
+        result.add(new Color(132, 108, 197));
+        result.add(new Color(144, 74, 61));
+        result.add(new Color(228, 26, 28));
+        result.add(new Color(55, 126, 184));
+        result.add(new Color(77, 175, 74));
+        result.add(new Color(152, 78, 163));
+        result.add(new Color(255, 127, 0));
+        result.add(new Color(255, 255, 51));
+        result.add(new Color(166, 86, 40));
+        result.add(new Color(247, 129, 191));
+        result.add(new Color(153, 153, 153));
+        return result;
+    }
+
     /**
      * Returns a palette of ten colors created using the "i want hue" utility,
      * using the preset "Fancy (light background)" settings.  A new list

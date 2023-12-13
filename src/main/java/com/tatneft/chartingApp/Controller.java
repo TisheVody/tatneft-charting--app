@@ -119,6 +119,8 @@ public class Controller implements Initializable {
         clmnFCSource.setCellValueFactory(new PropertyValueFactory<>("source"));
         clmnFCDestination.setCellValueFactory(new PropertyValueFactory<>("destination"));
         clmnFCFlow.setCellValueFactory(new PropertyValueFactory<>("flow"));
+
+        ThemesForCharts.setStandardChartTheme();
     }
     @FXML
     private void clickAddGroup() {
